@@ -4,8 +4,8 @@
 项目的build.gradle中 添加jcenter远程仓库
 
 ``
-buildscript {
 
+buildscript {
     repositories {
     
         maven {
@@ -13,6 +13,7 @@ buildscript {
         }
     }
 }
+
 ``
 
 项目的build.gradle中 添加依赖
