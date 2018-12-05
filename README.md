@@ -1,7 +1,9 @@
 # gradle.build.plugin
 
-1）添加插件依赖：
+## 1）添加插件依赖：
 项目的build.gradle中 添加jcenter远程仓库
+
+‘’
 buildscript {
     repositories {
         maven {
@@ -9,6 +11,7 @@ buildscript {
         }
     }
 }
+‘’
 
 项目的build.gradle中 添加依赖
 classpath 'com.czb.chezhubang:build-plugin:0.9.1'
@@ -16,7 +19,7 @@ classpath 'com.czb.chezhubang:build-plugin:0.9.1'
 app的build.gradle中
 apply plugin: 'com.czb.chezhubang.plugin.custom.build'
 
-2）配置：
+## 2）配置：
 项目的build.gradle中 android闭包中：
 android {
 	czbBuildConfig {
@@ -43,7 +46,7 @@ android {
 	}
 }
 
-3）如何使用
+## 3）如何使用
 <1> 打包
 release 包 ：gradle → czb → Tasks → build → assembleRelease
 debug 包 ：gradle → czb → Tasks → build → assembleDebug
