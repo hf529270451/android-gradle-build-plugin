@@ -4,14 +4,13 @@
 项目的build.gradle中 添加jcenter远程仓库
 
 `
-buildscript {
-    repositories {
-    
-        maven {
-            url 'https://hfyd.bintray.com/plugin'	   
-        }
-    }
-}
+ buildscript {
+     repositories {  
+         maven {
+             url 'https://hfyd.bintray.com/plugin'	   
+         }
+     }
+ }
 
 `
 
