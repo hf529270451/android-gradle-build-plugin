@@ -5,9 +5,13 @@
 
 ``
 buildscript {
+
     repositories {
+    
         maven {
+
             url 'https://hfyd.bintray.com/plugin'
+	   
         }
     }
 }
