@@ -29,7 +29,8 @@ app的build.gradle中
 项目的build.gradle中 android闭包中：
 
 
-``android {
+```java
+android {
 	czbBuildConfig {
     	uploadConfig {
         	pgyerApiKey  //蒲公英apikey
@@ -52,7 +53,8 @@ app的build.gradle中
         	}
    		 }
 	}
-}``
+}
+```
 
 
 
