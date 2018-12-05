@@ -19,7 +19,7 @@
 
 app的build.gradle中
 
-    apply plugin: 'com.czb.chezhubang.plugin.custom.build'
+    apply plugin: 'com.czb.chezhubang.plugin.build'
 
 
 ## 2）配置：
