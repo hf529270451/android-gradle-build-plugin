@@ -3,7 +3,7 @@
 ## 1）添加插件依赖：
 项目的build.gradle中 添加jcenter远程仓库
 
-`
+``
  buildscript {
      repositories {  
          maven {
@@ -12,7 +12,7 @@
      }
  }
 
-`
+``
 
 项目的build.gradle中 添加依赖
 
