@@ -14,45 +14,44 @@
 
 项目的build.gradle中 添加依赖
 
-``
-classpath 'com.czb.chezhubang:build-plugin:0.9.1'
-``
+    classpath 'com.czb.chezhubang:build-plugin:0.9.1'
+
 
 app的build.gradle中
 
-``
-apply plugin: 'com.czb.chezhubang.plugin.custom.build'
-``
+    apply plugin: 'com.czb.chezhubang.plugin.custom.build'
+
 
 ## 2）配置：
 项目的build.gradle中 android闭包中：
 
-``
-android {
-	czbBuildConfig {
-    	uploadConfig {
-        	pgyerApiKey  //蒲公英apikey
-        	pgyerAppName   //蒲公英上传的app名字
-        	debugFilePath  //debug apk包全路径
-        	releaseFilePath  //release包全路径
-        	releaseJiaGuFilePath  //加固后的包全路径
-    	}
 
-    	jiaGuConfig {
-        	jiaGuUsername //360加固宝 username
-        	jiaGuPassword //360加固宝 password
-        	jiaGuFileLocalPath //360加固宝 jar路径
+    android {
+            ...
+	    czbBuildConfig {
+    	        uploadConfig {
+        	    pgyerApiKey  //蒲公英apikey
+        	    pgyerAppName   //蒲公英上传的app名字
+        	    debugFilePath  //debug apk包全路径
+        	    releaseFilePath  //release包全路径
+        	    releaseJiaGuFilePath  //加固后的包全路径
+    	        }
 
-        	signingConfig {
-            	storeFilePath //jks路径
-            	storePassword //密码
-            	keyAlias //别名
-            	keyPassword //别名密码
-        	}
-   		 }
-	}
-}
-``
+    	        jiaGuConfig {
+        	    jiaGuUsername //360加固宝 username
+        	    jiaGuPassword //360加固宝 password
+        	    jiaGuFileLocalPath //360加固宝 jar路径
+
+        	    signingConfig {
+            	        storeFilePath //jks路径
+            	        storePassword //密码
+            	        keyAlias //别名
+            	        keyPassword //别名密码
+        	    }
+                 }
+	    }
+    }
+
 
 ## 3）如何使用
 #### <1> 打包
