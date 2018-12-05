@@ -1,5 +1,7 @@
 # gradle.build.plugin
 
+该gradle插件用来做自动化打包，加固，adb install 上传蒲公英
+
 ## 1）添加插件依赖：
 项目的build.gradle中 添加jcenter远程仓库
 
