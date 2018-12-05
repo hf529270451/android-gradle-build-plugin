@@ -32,25 +32,25 @@ app的build.gradle中
 ```java
 android {
 	czbBuildConfig {
-    	uploadConfig {
-        	pgyerApiKey  //蒲公英apikey
-        	pgyerAppName   //蒲公英上传的app名字
-        	debugFilePath  //debug apk包全路径
-        	releaseFilePath  //release包全路径
-        	releaseJiaGuFilePath  //加固后的包全路径
-    	}
+    		uploadConfig {
+        		pgyerApiKey  //蒲公英apikey
+        		pgyerAppName   //蒲公英上传的app名字
+        		debugFilePath  //debug apk包全路径
+        		releaseFilePath  //release包全路径
+        		releaseJiaGuFilePath  //加固后的包全路径
+    		}
 
-    	jiaGuConfig {
-        	jiaGuUsername //360加固宝 username
-        	jiaGuPassword //360加固宝 password
-        	jiaGuFileLocalPath //360加固宝 jar路径
+    		jiaGuConfig {
+        		jiaGuUsername //360加固宝 username
+        		jiaGuPassword //360加固宝 password
+        		jiaGuFileLocalPath //360加固宝 jar路径
 
-        	signingConfig {
-            	storeFilePath //jks路径
-            	storePassword //密码
-            	keyAlias //别名
-            	keyPassword //别名密码
-        	}
+        		signingConfig {
+            			storeFilePath //jks路径
+            			storePassword //密码
+            			keyAlias //别名
+            			keyPassword //别名密码
+        		}
    		 }
 	}
 }
