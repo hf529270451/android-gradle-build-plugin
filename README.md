@@ -3,7 +3,7 @@
 ## 1）添加插件依赖：
 项目的build.gradle中 添加jcenter远程仓库
 
-‘’
+''
 buildscript {
     repositories {
         maven {
@@ -11,7 +11,7 @@ buildscript {
         }
     }
 }
-‘’
+''
 
 项目的build.gradle中 添加依赖
 classpath 'com.czb.chezhubang:build-plugin:0.9.1'
