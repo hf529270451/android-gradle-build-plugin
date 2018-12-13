@@ -9,14 +9,14 @@
     buildscript {
          repositories {  
              maven {
-                 url 'https://hfyd.bintray.com/plugin'	   
+                url 'https://dl.bintray.com/hfyd529270451/plugin/'
              }
          }
      }
 
 项目的build.gradle中 添加依赖
 
-    classpath 'com.czb.chezhubang:build-plugin:0.9.1'
+    classpath 'com.czb.chezhubang:build-plugin:0.9.3.4'
 
 
 app的build.gradle中
@@ -35,6 +35,7 @@ android {
     		uploadConfig {
         		pgyerApiKey  //蒲公英apikey
         		pgyerAppName   //蒲公英上传的app名字
+        		pgyerDescription //更新版本描述
         		debugFilePath  //debug apk包全路径
         		releaseFilePath  //release包全路径
         		releaseJiaGuFilePath  //加固后的包全路径

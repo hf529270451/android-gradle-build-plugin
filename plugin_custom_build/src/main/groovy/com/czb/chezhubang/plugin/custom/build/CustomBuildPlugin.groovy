@@ -37,7 +37,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                 def outputFile = project.czbBuildConfig.uploadConfig.debugFilePath
                 def apiKey = project.czbBuildConfig.uploadConfig.pgyerApiKey
                 def appName = project.czbBuildConfig.uploadConfig.pgyerAppName
-                def des = "DebugApk ${project.czbBuildConfig.uploadConfig.pgyerDescription}"
+                def des = "DebugApk${project.czbBuildConfig.uploadConfig.pgyerDescription}"
 
                 if (!new File(outputFile).exists()) {
                     error "file not found"
@@ -61,7 +61,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                 def outputFile = project.czbBuildConfig.uploadConfig.releaseFilePath
                 def apiKey = project.czbBuildConfig.uploadConfig.pgyerApiKey
                 def appName = project.czbBuildConfig.uploadConfig.pgyerAppName
-                def des = "ReleaseApk ${project.czbBuildConfig.uploadConfig.pgyerDescription}"
+                def des = "ReleaseApk${project.czbBuildConfig.uploadConfig.pgyerDescription}"
                 if (!new File(outputFile).exists()) {
                     error "file not found"
                     return
@@ -84,7 +84,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                 def outputFile = project.czbBuildConfig.uploadConfig.releaseJiaGuFilePath
                 def apiKey = project.czbBuildConfig.uploadConfig.pgyerApiKey
                 def appName = project.czbBuildConfig.uploadConfig.pgyerAppName
-                def des = "JiaGuReleaseApk ${project.czbBuildConfig.uploadConfig.pgyerDescription}"
+                def des = "JiaGuReleaseApk${project.czbBuildConfig.uploadConfig.pgyerDescription}"
                 if (!new File(outputFile).exists()) {
                     error "file not found"
                     return
@@ -201,7 +201,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                     " -F file=@${outputFile} " +
                     " -F _api_key=${pgyerApiKey} " +
                     " -F buildName=${pgyerAppName} " +
-                    " -F buildDescription=$pgyerDes {} " +
+                    " -F buildUpdateDescription=${pgyerDes} " +
                     "https://www.pgyer.com/apiv2/app/upload"
 
             println uploadCommand
