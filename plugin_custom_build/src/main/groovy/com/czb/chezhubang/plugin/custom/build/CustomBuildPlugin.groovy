@@ -37,6 +37,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                 def outputFile = project.czbBuildConfig.uploadConfig.debugFilePath
                 def apiKey = project.czbBuildConfig.uploadConfig.pgyerApiKey
                 def appName = project.czbBuildConfig.uploadConfig.pgyerAppName
+                def des = "DebugApk ${project.czbBuildConfig.uploadConfig.pgyerDescription}"
 
                 if (!new File(outputFile).exists()) {
                     error "file not found"
@@ -48,7 +49,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                     return
                 }
 
-                uploadApk(outputFile, apiKey, appName)
+                uploadApk(outputFile, apiKey, appName, des)
             }
         }
 
@@ -60,6 +61,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                 def outputFile = project.czbBuildConfig.uploadConfig.releaseFilePath
                 def apiKey = project.czbBuildConfig.uploadConfig.pgyerApiKey
                 def appName = project.czbBuildConfig.uploadConfig.pgyerAppName
+                def des = "ReleaseApk ${project.czbBuildConfig.uploadConfig.pgyerDescription}"
                 if (!new File(outputFile).exists()) {
                     error "file not found"
                     return
@@ -70,7 +72,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                     return
                 }
 
-                uploadApk(outputFile, apiKey, appName)
+                uploadApk(outputFile, apiKey, appName, des)
             }
         }
 
@@ -82,7 +84,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                 def outputFile = project.czbBuildConfig.uploadConfig.releaseJiaGuFilePath
                 def apiKey = project.czbBuildConfig.uploadConfig.pgyerApiKey
                 def appName = project.czbBuildConfig.uploadConfig.pgyerAppName
-
+                def des = "JiaGuReleaseApk ${project.czbBuildConfig.uploadConfig.pgyerDescription}"
                 if (!new File(outputFile).exists()) {
                     error "file not found"
                     return
@@ -93,7 +95,7 @@ class CustomBuildPlugin implements Plugin<Project> {
                     return
                 }
 
-                uploadApk(outputFile, apiKey, appName)
+                uploadApk(outputFile, apiKey, appName, des)
             }
         }
 
@@ -165,11 +167,11 @@ class CustomBuildPlugin implements Plugin<Project> {
 
         def cmdLogin = " ${cmdBase}  -login ${jiaGuConfig.jiaGuUsername} ${jiaGuConfig.jiaGuPassword}"
 
-       /* def cmdImportsign = cmdBase + ' -importsign '
-        +jiaGuConfig.signingConfig.storeFilePath + ' '
-        +jiaGuConfig.signingConfig.storePassword + ' '
-        +jiaGuConfig.signingConfig.keyAlias + ' '
-        +jiaGuConfig.signingConfig.keyPassword*/
+        /* def cmdImportsign = cmdBase + ' -importsign '
+         +jiaGuConfig.signingConfig.storeFilePath + ' '
+         +jiaGuConfig.signingConfig.storePassword + ' '
+         +jiaGuConfig.signingConfig.keyAlias + ' '
+         +jiaGuConfig.signingConfig.keyPassword*/
 
         def cmdImportsign = "${cmdBase} -importsign ${jiaGuConfig.signingConfig.storeFilePath}" +
                 " ${jiaGuConfig.signingConfig.storePassword} ${jiaGuConfig.signingConfig.keyAlias}" +
@@ -192,13 +194,14 @@ class CustomBuildPlugin implements Plugin<Project> {
     }
 
 
-    void uploadApk(outputFile, pgyerApiKey, pgyerAppName) {
+    void uploadApk(outputFile, pgyerApiKey, pgyerAppName, pgyerDes) {
         if (outputFile != null) {
 
             def uploadCommand = "curl " +
                     " -F file=@${outputFile} " +
                     " -F _api_key=${pgyerApiKey} " +
                     " -F buildName=${pgyerAppName} " +
+                    " -F buildDescription=$pgyerDes {} " +
                     "https://www.pgyer.com/apiv2/app/upload"
 
             println uploadCommand

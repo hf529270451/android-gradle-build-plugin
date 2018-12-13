@@ -12,8 +12,18 @@ class UploadConfig {
 
     String pgyerAppName = ""
 
+    String pgyerDescription = ""
+
     String getDebugFilePath() {
         return debugFilePath
+    }
+
+    String getPgyerDescription() {
+        return pgyerDescription
+    }
+
+    void setPgyerDescription(String pgyerDescription) {
+        this.pgyerDescription = pgyerDescription
     }
 
     void setDebugFilePath(String debugFilePath) {
